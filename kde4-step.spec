@@ -3,19 +3,20 @@
 
 Summary:	K Desktop Environment - Interactive Physical Simulator
 Summary(pl.UTF-8):	K Desktop Environment - interaktywny symulator fizyczny
-Name:		step
-Version:	4.7.3
+Name:		kde4-step
+Version:	4.8.0
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	273da8e98289a218d7d76e762e4ae341
+# Source0-md5:	e476da52857ac1d753d821e4732c0126
 URL:		http://www.kde.org/
 BuildRequires:	cln-devel
 BuildRequires:	eigen
 BuildRequires:	gsl-devel
 BuildRequires:	kde4-kdelibs-devel >= %{version}
 Obsoletes:	kde4-kdeedu-step < 4.7.0
+Obsoletes:	step <= 4.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,12 +61,12 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
-%find_lang %{name} --with-kde
+%find_lang %{orgname} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/step
 %{_datadir}/apps/step
