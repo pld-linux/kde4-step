@@ -4,12 +4,12 @@
 Summary:	K Desktop Environment - Interactive Physical Simulator
 Summary(pl.UTF-8):	K Desktop Environment - interaktywny symulator fizyczny
 Name:		kde4-step
-Version:	4.9.1
+Version:	4.9.4
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	0e36c3f684e98025d2156fc8de64c174
+# Source0-md5:	4f11b6a007b86d41d026008d7b914c30
 URL:		http://www.kde.org/
 BuildRequires:	cln-devel
 BuildRequires:	eigen
