@@ -1,15 +1,21 @@
+%bcond_without	doc		# build handbooks
+
 %define		_state		stable
 %define		orgname		step
 
+%ifarch %{ix86}
+%undefine	with_doc
+%endif
 Summary:	K Desktop Environment - Interactive Physical Simulator
 Summary(pl.UTF-8):	K Desktop Environment - interaktywny symulator fizyczny
 Name:		kde4-step
 Version:	4.14.3
-Release:	8
+Release:	9
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	http://download.kde.org/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
 # Source0-md5:	9e021e50310f0e99bd621d57ab07b7ef
+Patch0:		no-doc.patch
 URL:		http://www.kde.org/
 BuildRequires:	cln-devel
 BuildRequires:	eigen
@@ -47,6 +53,7 @@ fizyka.
 
 %prep
 %setup -q -n %{orgname}-%{version}
+%{!?with_doc:%patch0 -p1}
 
 %build
 install -d build
@@ -64,12 +71,14 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir}
 
+%if %{with doc}
 %find_lang %{orgname} --with-kde
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{orgname}.lang
+%files %{?with_doc:-f %{orgname}.lang}
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/step
 %{_datadir}/appdata/step.appdata.xml

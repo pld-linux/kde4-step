@@ -1,0 +1,10 @@
+--- step-4.14.3/CMakeLists.txt~	2014-10-14 08:53:43.000000000 +0200
++++ step-4.14.3/CMakeLists.txt	2021-12-03 21:50:37.335901045 +0100
+@@ -24,7 +24,6 @@
+ if (EIGEN2_FOUND)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${EIGEN2_INCLUDE_DIR})
+ 
+-   add_subdirectory(doc) 
+    add_subdirectory(stepcore)
+    add_subdirectory(step)
+ 
